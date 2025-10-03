@@ -8,7 +8,13 @@ import { SuperHeroesPage } from './components/SuperHeroes.page'
 import { RQSuperHeroPage } from './components/RQSuperHero.page'
 
 function App() {
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false, // default: true
+      },
+    },
+  })
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
